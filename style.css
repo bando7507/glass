@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    font-family: 'Lato', sans-serif;
+    /* perspective: px; */
+}
+
+
+main {
+    height: 100vh;
+    background: linear-gradient(to right top, #fcf81a93, #cbce0f80);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+
+.glass {
+    width: 75%;
+    height: 90vh;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    border-radius: 0.5rem;
+    z-index: 3;
+    backdrop-filter: blur(2rem);
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 30% 70%;
+    grid-template-areas:
+        "dashboard game";
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    transition: all .3s ease ;
+}
+
+.dashboard {
+    grid-area: dashboard;
+    background: linear-gradient(to left top, #ecea6493, rgba(255, 255, 255, 0.4));
+    height: 100%;
+    border-radius: .5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: relative;
+}
+
+.game {
+    grid-area: game;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 90px;
+
+}
+
+.rond1,
+.rond2 {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, .5));
+    position: absolute;
+    border-radius: 50%;
+    z-index: 2;
+
+
+}
+
+.rond1 {
+    top: 1%;
+    left: 10%;
+    z-index: 2;    
+}
+
+.rond2 {
+    bottom: 1%;
+    right: 10%;
+}
+
+
+.img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 3rem;
+}
+
+.img img {
+    width: 78px;
+    background: rgba(0, 0, 0, 0.158);
+    border-radius: 50%;
+    padding: 0.5rem;
+    /* border: 2px solid #000; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+    margin: 1rem 0;
+}
+
+.img__game {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e6d700;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.controller {
+    width: 100px;
+}
+
+.link__title {
+    font-size: 1.3rem;
+}
+
+.links {
+    display: grid;
+    grid-template-rows: max-content;
+    row-gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.link i {
+    font-size: 1.8rem;
+    color: #9dff00;
+    margin-right: .5rem;
+    cursor: pointer;
+}
+
+.dashboard__icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.close__icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+@media screen and (max-width: 788px) {
+
+    .dashboard__icon {
+        display: block;
+    }
+
+    .close__icon {
+        display: block;
+    }
+
+    .links {
+        position: fixed;
+        left: 0;
+        top: -100%;
+        background: #ffffff;
+        width: 100%;
+        height: 50%;
+        flex-direction: column;
+        border-radius: 0.5rem;
+        z-index: 100;
+        transition: .3s;
+    }
+
+
+}
+
+.show {
+    top: 0%;
+}
+
+
+.max-width {
+    width: 100%;
+}
+
+.max-width__title {
+    position: relative;
+    font-size: 3rem;
+    color: #9e9269;
+    transition: all .4s;
+
+}
+
+.max-width__title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    background: #ffffffd7;
+    width: 180px;
+    height: 9px;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.max-width__input {
+    margin-top: 1.5rem;
+}
+
+.game__content {
+    display: grid;
+    grid-row: max-content;
+    row-gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.game-el {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: #ffffff;
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.game__img {
+    width: 75px;
+}
+
+.game-el__data--title {
+    margin-bottom: .5rem;
+}
+
+.game-el__data--subtitle {
+    margin-top: .5rem;
+}
+
+.vide {
+    width: 200px;
+    height: 15px;
+    background: rgba(131, 145, 12, 0.425);
+    border-radius: 1rem;
+
+}
+
+.on1 {
+    background-color: rgb(234, 238, 24);
+    width: 80%;
+    height: 100%;
+    border-radius: 1rem;
+}
+
+.on2 {
+    background-color: rgb(234, 238, 24);
+    width: 30%;
+    height: 100%;
+    border-radius: 1rem;
+}
+
+.on3 {
+    background-color: rgb(234, 238, 24);
+    width: 50%;
+    height: 100%;
+    border-radius: 1rem;
+}
+
+@media screen and (max-width: 928px) {
+    .game {
+        padding: 0px;
+    }
+}
+
+@media screen and (max-width: 788px) {
+    .glass {
+        width: 75%;
+        height: 100%;
+        grid-template-rows: 25% 80%;
+        grid-template-columns: 100%;
+        grid-template-areas:
+            "dashboard"
+            "game";
+    }
+
+    .game {
+        padding: 0px;
+    }
+
+    .links {
+        display: flex;
+    }
+
+    .dashboard {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .img {
+        margin-bottom: 1rem;
+    }
+
+    .img img {
+        margin: 10px 0;
+    }
+
+    .link__title {
+        font-size: 1rem;
+    }
+
+    .link {
+        display: flex;
+        margin-right: 0.5rem;
+    }
+
+    .link i {
+        font-size: 1rem;
+        color: #9dff00;
+        margin-right: .5rem;
+    }
+
+    .img__game {
+        display: none;
+    }
+
+    .max-width__title {
+        font-size: 2rem;
+    }
+
+}
+
+@media screen and (max-width: 688px) {
+    .glass {
+        width: 95%;
+        height: 95vh;
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+
+    .game__img {
+        width: 65px;
+    }
+
+    .game-el__data--title {
+        margin-bottom: .2rem;
+    }
+
+
+    .vide {
+        width: 100px;
+        height: 15px;
+    }
+
+}
